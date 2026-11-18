@@ -59,6 +59,8 @@ a{color:var(--accent)}
   <h2>What each map does</h2>
   <ul>
     <li>Geocodes the address (or takes coordinates) and pulls nearby records from EPA (ECHO, RCRA, SEMS/Superfund, TRI, air and water permits) and TCEQ (leaking and registered petroleum storage tanks, tanks in use from delivery certificates, state Superfund, Voluntary Cleanup, Innocent Owner, Brownfields, dry cleaners, solid waste and landfills, industrial and hazardous waste, Edwards Aquifer zones).</li>
+    <li>Cross-checks two TCEQ tank sources. TCEQ's own PST map layer is missing about 1 in 5 facilities with tanks in use (3,437 of 16,065 when checked in November 2026), so the tool adds them from TCEQ's delivery-certificate records. In the Austin example, that's a QuikTrip about 700 feet from the site.</li>
+    <li>Places leaking-tank cases with TCEQ's official coordinates and fills in missing facility names from TCEQ's Central Registry.</li>
     <li>Measures distance, compass direction and relative elevation for every record, and flags what falls inside ASTM E1527-21 minimum search distances.</li>
     <li>Gives you filters, a sortable table, key findings, a list of unmapped (orphan) records, and CSV / PDF export.</li>
   </ul>
@@ -66,11 +68,11 @@ a{color:var(--accent)}
   <h2>Where it saves time</h2>
   <div class="grid">
     <div class="card"><h3>Before you bid</h3><p>See in a minute whether a site sits next to open leaking tanks or Superfund sites before you price the Phase I.</p></div>
-    <div class="card"><h3>Portfolio screening</h3><p>Run a batch of 50–500 addresses and rank them by nearby risk before you commit to full reports.</p></div>
+    <div class="card"><h3>Portfolio screening</h3><p>Send a list of addresses, coordinates or a KMZ of parcels. Each site gets its own map, and a summary table ranks them by nearby risk, with the scoring explained, before you commit to full reports.</p></div>
     <div class="card"><h3>Quick client answers</h3><p>Send a clean, clickable map when a client asks "is there anything around this property?"</p></div>
   </div>
 
-  <p class="note" style="margin-top:28px">This is a screening aid built on public data. It doesn't replace a standard environmental database report or a professional's judgment under ASTM E1527-21.</p>
+  <p class="note" style="margin-top:28px">This is a screening aid built on public data, queried live on the date shown in each map. It doesn't cover historical sources (old gas stations and dry cleaners, Sanborn maps, aerials), spills or institutional controls, and it doesn't replace a standard environmental database report or a professional's judgment under ASTM E1527-21.</p>
 
   <footer>
     <strong>Victor Quintero</strong> · Data tools &amp; GIS maps for environmental consultants<br>
