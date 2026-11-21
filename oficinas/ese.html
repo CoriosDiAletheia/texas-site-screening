@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radius Report: 1100 NW Loop 410, San Antonio, TX 78213</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--ink:#1d2329;--muted:#5f6b76;--line:#e3e7eb;--bg:#f6f7f9;--card:#fff;--accent:#0b5cad;--warn:#c62828}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+header{background:#13212e;color:#fff;padding:14px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+header h1{margin:0;font-size:18px} header .meta{color:#b8c4ce;font-size:12px;margin-top:3px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-size:13px;border:1px solid #c9d1d9;background:#fff;color:var(--ink);padding:7px 12px;border-radius:6px;cursor:pointer}
+header button{background:#22374a;color:#fff;border-color:#3b556c} button:hover{filter:brightness(.95)}
+main{padding:16px 20px;max-width:1500px;margin:0 auto}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:5px 12px;font-size:12px}
+.chip b{color:var(--muted);font-weight:normal;margin-right:4px} .zone-hit{border-color:#e65100;background:#fff3e0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi-n{font-size:26px;font-weight:bold} .kpi-l{color:var(--muted);font-size:12px} .kpi-l span{color:#9aa5af}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h2{font-size:14px;margin:0 0 8px} #map{height:560px;border-radius:8px;border:1px solid var(--line)}
+.findings{margin:0;padding-left:18px;line-height:1.5} .findings li{margin-bottom:4px}
+.filters{display:grid;grid-template-columns:1fr;gap:10px}
+.dblist label{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:13px;cursor:pointer}
+.dblist .astm{margin-left:auto;color:var(--muted);font-size:11px;white-space:nowrap}
+.dot{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,input[type=search]{font:inherit;font-size:13px;padding:6px 8px;border:1px solid #c9d1d9;border-radius:6px}
+input[type=search]{flex:1;min-width:160px}
+.toggle{display:flex;gap:6px;align-items:center;font-size:13px;cursor:pointer}
+.small{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{position:sticky;top:0;background:#eef1f4;text-align:left;padding:7px 8px;cursor:pointer;white-space:nowrap;user-select:none}
+th:hover{background:#e2e7ec} td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr{cursor:pointer} tbody tr:hover{background:#f3f7fb} tr.flag td:first-child{box-shadow:inset 3px 0 0 var(--warn)}
+.tablewrap{max-height:620px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+.num{text-align:right;white-space:nowrap} .up{color:var(--warn);font-weight:bold} .down{color:#2e7d32}
+.badge{display:inline-block;font-size:11px;padding:1px 6px;border-radius:9px;background:#fdecea;color:var(--warn);white-space:nowrap}
+.badge.ok{background:#e8f5e9;color:#2e7d32} a{color:var(--accent)}
+.ringlbl{background:rgba(255,255,255,.85);border:1px solid #13212e;border-radius:8px;font-size:10px;font-weight:bold;text-align:center;line-height:14px;color:#13212e}
+.legend{background:#fff;padding:6px 8px;border-radius:6px;font-size:11px;line-height:1.5;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+footer{font-size:11px;color:var(--muted);padding:14px 20px 30px;max-width:1500px;margin:0 auto;line-height:1.5}
+.warnlist{color:var(--warn);margin:6px 0 0;padding-left:18px}
+@media (max-width:960px){.grid{grid-template-columns:1fr} #map{height:420px}}
+@media print{header .btns,.filters-card{display:none} body{background:#fff} .tablewrap{max-height:none;overflow:visible}
+ #map{height:430px} .grid{grid-template-columns:1fr} th{position:static}}
+</style></head><body>
+<header>
+  <div><h1>Environmental Screening Radius Report</h1>
+  <div class="meta">1100 NW Loop 410, San Antonio, TX 78213 &middot; generated 2026-11-21 &middot; search radius 1 mi</div></div>
+  <div class="btns">
+    <button id="bCsv" title="Download the rows currently shown in the table">Export CSV</button>
+    <button id="bCopy" title="Copy the key findings as text">Copy findings</button>
+    <button onclick="window.print()" title="Print or save as PDF">Print / PDF</button>
+  </div>
+</header>
+<main>
+  <div class="facts">
+    <span class="chip"><b>Coordinates</b>29.51934, -98.50914</span>
+    <span class="chip"><b>Site elevation</b>823 ft</span>
+    <span class="chip "><b>Edwards Aquifer</b>Outside the Edwards Aquifer regulated zones</span>
+  </div>
+  <div class="kpis"><div class="kpi"><div class="kpi-n">55</div><div class="kpi-l">Records found</div></div><div class="kpi"><div class="kpi-n">7</div><div class="kpi-l">Inside ASTM search distance<br><span>needs review</span></div></div><div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Superfund (fed. + state)</div></div><div class="kpi"><div class="kpi-n">6</div><div class="kpi-l">Leaking tanks (LPST)<br><span>within 0.5 mi</span></div></div><div class="kpi"><div class="kpi-n">6</div><div class="kpi-l">Higher than site<br><span>inside ASTM dist.</span></div></div><div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Violations / flags</div></div></div>
+  <div class="grid">
+    <div><div id="map"></div></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="card"><h2>Key findings</h2><ul class="findings" id="findings"><li>No federal NPL Superfund sites within 1 mi.</li><li>No Texas State Superfund sites within 1 mi.</li><li><b>6</b> leaking petroleum storage tank site(s) within 0.5 mi (0 open, 6 closed). Nearest: EXXON 67325 (0.12 mi ENE, 15 ft higher than the site).</li><li><b>1</b> registered petroleum storage tank site(s) within 0.25 mi. Nearest: QUIKTRIP 4009 (0.25 mi ENE, 18 ft higher than the site).</li><li><b>6</b> record(s) inside ASTM distance sit higher than the site (possible upgradient; confirm groundwater flow direction).</li></ul></div>
+      <div class="card filters-card"><h2>Filters</h2>
+        <div class="filters">
+          <div class="dblist" id="dblist"></div>
+          <div class="row"><button id="bAstm">ASTM databases only</button><button id="bAll">All</button><button id="bNone">None</button></div>
+          <div class="row">
+            <label class="small">Max distance
+              <select id="fDist"><option value="0.125">1/8 mi</option><option value="0.25">1/4 mi</option>
+              <option value="0.5">1/2 mi</option><option value="1" selected>1 mi</option><option value="99">All</option></select></label>
+          </div>
+          <label class="toggle"><input type="checkbox" id="fAstm"> Only records inside their ASTM search distance</label>
+          <label class="toggle"><input type="checkbox" id="fUp"> Only records higher than the site (possible upgradient)</label>
+          <label class="toggle"><input type="checkbox" id="fFlag"> Only violations, leaks and Superfund</label>
+          <input type="search" id="fText" placeholder="Search name, address or status">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="row" style="justify-content:space-between;margin-bottom:8px">
+      <h2 style="margin:0">Records <span class="small" id="count"></span></h2>
+      <span class="small">Click a row to locate it on the map. Click a header to sort.</span>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th data-k="db">Database</th><th data-k="name">Name</th><th data-k="addr">Address</th>
+      <th data-k="dist" class="num">Dist. (mi)</th><th data-k="dir">Dir.</th><th data-k="relElev" class="num">Elev. vs site (ft)</th>
+      <th data-k="inAstm">ASTM distance</th><th data-k="status">Status</th><th>Link</th></tr></thead>
+      <tbody id="tbody"></tbody></table></div>
+  </div>
+  
+</main>
+<footer>
+  <b>Sources</b> (pulled 2026-11-21): U.S. Census Geocoder; EPA ECHO (RCRA, TRI, CAA, CWA); EPA SEMS via Envirofacts
+  (federal Superfund, active Texas sites); TCEQ Leaking Petroleum Storage Tank database (data.texas.gov, located by
+  TCEQ PST coordinates or geocoded address); TCEQ GIS services: Petroleum Storage Tanks, State Superfund,
+  Industrial &amp; Hazardous Waste, Edwards Aquifer zones; USGS 3DEP elevation (EPQS). Basemaps: CARTO / OpenStreetMap
+  contributors, USGS The National Map.<br>
+  <b>Limits.</b> Screening aid for environmental professionals, not an ASTM E1527-21 standard database report.
+  Search distances follow the ASTM E1527-21 minimums for the databases included; RCRA generators and registered tanks
+  use a 0.25 mi screen for "property and adjoining". Relative elevation is a proxy only: groundwater flow direction
+  must be confirmed from site data. Records with missing or approximate coordinates in the source databases may be
+  absent or misplaced (orphan records are not resolved).
+</footer>
+<script>
+const D = {"site": [29.51934, -98.50914], "radius": 1.0, "records": [{"db": "LPST", "name": "EXXON 67325", "addr": "1000 NW LOOP 410, SAN ANTONIO", "lat": 29.51993786188372, "lon": -98.50728856840311, "status": "Closed 1990-08-22, reported 1988-11-08, LPST ID 092269", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN100525674", "flag": false, "dist": 0.119, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 837.8, "relElev": 14.7}, {"db": "LPST", "name": "EXXON 6 7325", "addr": "1000 NW LOOP 410, SAN ANTONIO", "lat": 29.51993786188372, "lon": -98.50728856840311, "status": "Closed 2008-06-05, reported 2004-02-25, LPST ID 116042", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN100525674", "flag": false, "dist": 0.119, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 837.8, "relElev": 14.7}, {"db": "PST", "name": "QUIKTRIP 4009", "addr": "735 NW LOOP 410 STE 102, SAN ANTONIO", "lat": 29.52115, "lon": -98.50555, "status": "6 tank(s) in use (Diesel, Gasoline) \u00b7 from TCEQ delivery certificates (not yet in TCEQ's PST map layer)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN111014536", "flag": false, "dist": 0.249, "dir": "ENE", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": true, "elev": 841.4, "relElev": 18.3}, {"db": "RCRA_NLR", "name": "TUNEUP MASTERS 1002", "addr": "7119 BLANCO RD, SAN ANTONIO", "lat": 29.522343, "lon": -98.505543, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005102325", "flag": false, "dist": 0.3, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 837.2, "relElev": 14.1}, {"db": "LPST", "name": "BRAKE CHECK", "addr": "7119 BLANCO RD, SAN ANTONIO", "lat": 29.523048343557242, "lon": -98.5054717250954, "status": "Closed 1999-09-27, reported 1988-04-22, LPST ID 091831", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101791119", "flag": false, "dist": 0.338, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 840.1, "relElev": 17.0}, {"db": "LPST", "name": "CLOSED FACILITY", "addr": "7119 BLANCO RD, SAN ANTONIO", "lat": 29.523048343557242, "lon": -98.5054717250954, "status": "Closed 1994-06-01, reported 1991-11-22, LPST ID 101242", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101791119", "flag": false, "dist": 0.338, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 840.1, "relElev": 17.0}, {"db": "LPST", "name": "QUIK MART 210", "addr": "17119 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.523048343557242, "lon": -98.5054717250954, "status": "Closed 1994-06-01, reported 1990-04-26, LPST ID 095590", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101791119", "flag": false, "dist": 0.338, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 840.1, "relElev": 17.0}, {"db": "CWA", "name": "WATERSHED III DRAINAGE IMPROVEMENTS", "addr": "EAST OF GLENTOWER DR & NW MILITARY HWY, CASTLE HILLS", "lat": 29.5224, "lon": -98.5138, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070742475", "flag": false, "dist": 0.351, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 823.3, "relElev": 0.2}, {"db": "RCRA_NLR", "name": "EARLS CLEANERS", "addr": "806 LOCKHILL SELMA, SAN ANTONIO", "lat": 29.52357, "lon": -98.50564, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005091319", "flag": false, "dist": 0.36, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 839.3, "relElev": 16.2}, {"db": "PST", "name": "CIRCLE K STORE 2742159", "addr": "7203 BLANCO RD, SAN ANTONIO", "lat": 29.523499999654025, "lon": -98.50524000005863, "status": "FULLY REGULATED, 3 active tank(s)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102378189", "flag": false, "dist": 0.371, "dir": "NE", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": false, "elev": 841.2, "relElev": 18.1}, {"db": "CWA", "name": "CITY OF CASTLE HILLS WATERSHED III DRAINAGE IMPROVEMENTS PHASE 1", "addr": "101 GLENTOWER DR., SAN ANTONIO", "lat": 29.52294, "lon": -98.51422, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070694202", "flag": false, "dist": 0.394, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 830.7, "relElev": 7.6}, {"db": "RCRA_NLR", "name": "POWELL QUALITY CLEANERS", "addr": "6425 BLANCO RD, SAN ANTONIO", "lat": 29.51397, "lon": -98.50682, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110031298110", "flag": false, "dist": 0.396, "dir": "SSE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 813.0, "relElev": -10.1}, {"db": "LPST", "name": "SEARS", "addr": "201 CENTRAL PARK MALL, SAN ANTONIO", "lat": 29.518439338778727, "lon": -98.501745949973, "status": "Closed 2005-10-13, reported 1983-11-16, LPST ID 091007", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101776748", "flag": false, "dist": 0.449, "dir": "E", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": true, "elev": 826.1, "relElev": 3.0}, {"db": "RCRA_GEN", "name": "SEARS # 1167/6847", "addr": "622 NW LOOP 410, SAN ANTONIO", "lat": 29.520911, "lon": -98.500959, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110066951588", "flag": false, "dist": 0.504, "dir": "ENE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 844.0, "relElev": 20.9}, {"db": "RCRA_GEN", "name": "TARGET STORE T2467", "addr": "746 NW LOOP 410, SAN ANTONIO", "lat": 29.520911, "lon": -98.500959, "status": "SQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110054604567", "flag": false, "dist": 0.504, "dir": "ENE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 844.0, "relElev": 20.9}, {"db": "LPST", "name": "VICKERY ASSOCIATES", "addr": "7334 BLANCO RD STE 200, SAN ANTONIO", "lat": 29.52617491120868, "lon": -98.50439558097068, "status": "Closed 1990-03-22, reported 1989-02-16, LPST ID 092644", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN106996838", "flag": false, "dist": 0.552, "dir": "NNE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 854.4, "relElev": 31.3}, {"db": "LPST", "name": "TACO CABANA", "addr": "7339 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.516595370487106, "lon": -98.49967231638057, "status": "Closed 1990-02-08, reported 1989-12-20, LPST ID 094484", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102226123", "flag": false, "dist": 0.6, "dir": "ESE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 823.7, "relElev": 0.6}, {"db": "RCRA_NLR", "name": "NORTH STAR MALL INC", "addr": "7400 SAN PEDRO, SAN ANTONIO", "lat": 29.51785, "lon": -98.49917, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005087486", "flag": false, "dist": 0.608, "dir": "E", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 815.2, "relElev": -7.9}, {"db": "RCRA_GEN", "name": "SEPHORA USA STORE 70", "addr": "7400 SAN PEDRO AVE STE 104, SAN ANTONIO", "lat": 29.51785, "lon": -98.49917, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110015686541", "flag": false, "dist": 0.608, "dir": "E", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 815.2, "relElev": -7.9}, {"db": "RCRA_GEN", "name": "BRIDENT DENTAL", "addr": "7334 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.51649, "lon": -98.49926, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110059776210", "flag": false, "dist": 0.626, "dir": "ESE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 821.7, "relElev": -1.4}, {"db": "LPST", "name": "NORTH PARK LINCOLN MERCURY", "addr": "9207 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.523990167925817, "lon": -98.50011334881975, "status": "Closed 1993-05-13, reported 1990-11-01, LPST ID 100480", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102189594", "flag": false, "dist": 0.631, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 858.0, "relElev": 34.9}, {"db": "RCRA_NLR", "name": "NORTH STAR DODGE", "addr": "7242 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.51473, "lon": -98.49926, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005045085", "flag": false, "dist": 0.674, "dir": "ESE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 820.9, "relElev": -2.2}, {"db": "PST", "name": "FIRESTONE STORE 4363", "addr": "7203 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.51397, "lon": -98.49976, "status": "4 tank(s) in use (Diesel, Gasoline) \u00b7 from TCEQ delivery certificates (not yet in TCEQ's PST map layer)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102267531", "flag": false, "dist": 0.675, "dir": "ESE", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": false, "elev": 808.1, "relElev": -15.0}, {"db": "LPST", "name": "FIRESTONE MASTER CARE CENTER", "addr": "7203 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.513953217967906, "lon": -98.49966410126048, "status": "Closed 1995-07-13, reported 1992-08-06, LPST ID 104199", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102267531", "flag": false, "dist": 0.681, "dir": "ESE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 807.3, "relElev": -15.8}, {"db": "RCRA_NLR", "name": "CVS PHARMACY #7299", "addr": "7202 7202 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.51404, "lon": -98.499242, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110046407072", "flag": false, "dist": 0.699, "dir": "ESE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 812.8, "relElev": -10.3}, {"db": "LPST", "name": "NORTH STAR DODGGE CHRYSLER PLYMOUTH", "addr": "7242 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.5149691092034, "lon": -98.49861873204877, "status": "Closed 2000-11-16, reported 1998-11-16, LPST ID 113658", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN100562073", "flag": false, "dist": 0.701, "dir": "ESE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 820.3, "relElev": -2.8}, {"db": "CAA", "name": "FIRESTONE TIRE & SERVICE CENTERS", "addr": "7203 SAN PEDRO, SAN ANTONIO", "lat": 29.51387, "lon": -98.49927, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110001878521", "flag": false, "dist": 0.704, "dir": "ESE", "dbLabel": "Air permit (CAA)", "color": "#8d6e63", "astm": null, "inAstm": false, "elev": 810.6, "relElev": -12.5}, {"db": "LPST", "name": "THORNTON OIL 132", "addr": "7148 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.51323725085568, "lon": -98.49883035302342, "status": "Closed 2001-02-21, reported 1998-03-19, LPST ID 113061", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101750982", "flag": false, "dist": 0.75, "dir": "SE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 801.5, "relElev": -21.6}, {"db": "PST", "name": "QUICK STUFF 4789 - 80017773", "addr": "7150 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.512999999807004, "lon": -98.49889000002749, "status": "FULLY REGULATED, 2 active tank(s)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN103143376", "flag": false, "dist": 0.756, "dir": "SE", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": false, "elev": 798.5, "relElev": -24.6}, {"db": "LPST", "name": "GOODYEAR AUTO SERVICE CTR 4748", "addr": "226 W RECTOR ST, SAN ANTONIO", "lat": 29.516497738561494, "lon": -98.49693615770322, "status": "Closed 1996-03-15, reported 1994-04-01, LPST ID 108145", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102441375", "flag": false, "dist": 0.76, "dir": "ESE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 796.0, "relElev": -27.1}, {"db": "RCRA_NLR", "name": "THE GOODYEAR TIRE & RUBBER COMPANY", "addr": "226 W RECTOR ST, SAN ANTONIO", "lat": 29.51692, "lon": -98.496394, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005074766", "flag": false, "dist": 0.784, "dir": "ESE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 792.3, "relElev": -30.8}, {"db": "RCRA_NLR", "name": "TOM BENSON CHEVROLET", "addr": "9400 SAN PEDRO, SAN ANTONIO", "lat": 29.526163, "lon": -98.49864, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005038814", "flag": false, "dist": 0.788, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 875.2, "relElev": 52.1}, {"db": "LPST", "name": "TOM BENSON CHEVROLET", "addr": "9400 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52557723932235, "lon": -98.4976415252828, "status": "Closed 1996-11-22, reported 1990-09-26, LPST ID 096912", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102228897", "flag": false, "dist": 0.815, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 859.3, "relElev": 36.2}, {"db": "LPST", "name": "TOM BENSON CHEVROLET", "addr": "9400 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52557723932235, "lon": -98.4976415252828, "status": "Closed 1996-12-30, reported 1990-09-26, LPST ID 096913", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102228897", "flag": false, "dist": 0.815, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 859.3, "relElev": 36.2}, {"db": "LPST", "name": "TOM BENSON CHEVROLET MAIN BLDG", "addr": "9400 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52557723932235, "lon": -98.4976415252828, "status": "Closed 1995-10-20, reported 1990-09-26, LPST ID 096873", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102228897", "flag": false, "dist": 0.815, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 859.3, "relElev": 36.2}, {"db": "LPST", "name": "BENSON TOM CHEVROLET MAKE READY WAS", "addr": "9400 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52557723932235, "lon": -98.4976415252828, "status": "Closed 1995-07-13, reported 1991-12-17, LPST ID 101713", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102228897", "flag": false, "dist": 0.815, "dir": "ENE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 859.3, "relElev": 36.2}, {"db": "RCRA_NLR", "name": "BENSON HONDA", "addr": "9500 SAN PEDRO, SAN ANTONIO", "lat": 29.52683, "lon": -98.49843, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005049553", "flag": false, "dist": 0.826, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 874.2, "relElev": 51.1}, {"db": "RCRA_NLR", "name": "BELDON ROOFING & REMODELING CO", "addr": "5039 W AVENUE, SAN ANTONIO", "lat": 29.516395, "lon": -98.523017, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005038725", "flag": false, "dist": 0.859, "dir": "WSW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 787.8, "relElev": -35.3}, {"db": "RCRA_NLR", "name": "EXXON MOBIL CORPORATION", "addr": "3822 COLONY DRY & IH 20, SAN ANTONIO", "lat": 29.516395, "lon": -98.523017, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005130116", "flag": false, "dist": 0.859, "dir": "WSW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 787.8, "relElev": -35.3}, {"db": "CWA", "name": "PRESERVE AT MEDINA UNIT 1", "addr": "WATSON RD AND SH 16, SAN ANTONIO", "lat": 29.516395, "lon": -98.523017, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070374943", "flag": false, "dist": 0.859, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 787.8, "relElev": -35.3}, {"db": "LPST", "name": "KMART 3492", "addr": "7142 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.512848129843796, "lon": -98.49693951154093, "status": "Closed 1994-05-05, reported 1991-05-01, LPST ID 098878", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102011467", "flag": false, "dist": 0.86, "dir": "ESE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 794.1, "relElev": -29.0}, {"db": "LPST", "name": "BENSON MAZDA HONDA DEALERSHIP", "addr": "9600 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.527307180661353, "lon": -98.49767245436782, "status": "Closed 1997-03-04, reported 1991-09-18, LPST ID 100265", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN100549914", "flag": false, "dist": 0.882, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 871.3, "relElev": 48.2}, {"db": "LPST", "name": "BENSON MERCEDES BENZ", "addr": "9600 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.527307180661353, "lon": -98.49767245436782, "status": "Closed 1995-10-26, reported 1991-09-18, LPST ID 100266", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN100549914", "flag": false, "dist": 0.882, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 871.3, "relElev": 48.2}, {"db": "CWA", "name": "NORTH PARK SUBARU", "addr": "LOCATED AT THE SOUTHWEST CORNER OF THE INTERSECTIO, SAN ANTONIO", "lat": 29.528149, "lon": -98.498343, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070374874", "flag": false, "dist": 0.89, "dir": "NE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 854.9, "relElev": 31.8}, {"db": "RCRA_NLR", "name": "BENSON MOTOR", "addr": "9600 SAN PEDRO, SAN ANTONIO", "lat": 29.52809, "lon": -98.49794, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110000822227", "flag": false, "dist": 0.905, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 853.6, "relElev": 30.5}, {"db": "CWA", "name": "MERCEDES BENZ OF SAN ANTONIO", "addr": "9600 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52809, "lon": -98.49794, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070376746", "flag": false, "dist": 0.905, "dir": "NE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 853.6, "relElev": 30.5}, {"db": "CWA", "name": "VT SAN ANTONIO AEROSPACE", "addr": "9800 JOHN SAUNDERS, SAN ANTONIO", "lat": 29.526666, "lon": -98.496666, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070336699", "flag": false, "dist": 0.905, "dir": "NE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 864.7, "relElev": 41.6}, {"db": "CWA", "name": "LEE HIGH SCHOOL", "addr": "1400 JACKSON KELLER RD, SAN ANTONIO", "lat": 29.50673, "lon": -98.51346, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070363211", "flag": false, "dist": 0.909, "dir": "SSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 772.7, "relElev": -50.4}, {"db": "LPST", "name": "DIAMOND SHAMROCK CORNER STORE 9", "addr": "9697 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.528491669873663, "lon": -98.49827226356835, "status": "Closed 1996-10-17, reported , LPST ID 110471", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102377090", "flag": false, "dist": 0.909, "dir": "NE", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 849.2, "relElev": 26.1}, {"db": "RCRA_NLR", "name": "REX FORMAL WEAR", "addr": "7038 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.509215, "lon": -98.499285, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110031293721", "flag": false, "dist": 0.917, "dir": "SE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 803.0, "relElev": -20.1}, {"db": "CWA", "name": "NUEVO GARCIA FOODS", "addr": "1802 JACKSON KELLER RD, SAN ANTONIO", "lat": 29.51, "lon": -98.52, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070867491", "flag": false, "dist": 0.918, "dir": "SW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 760.6, "relElev": -62.5}, {"db": "PST", "name": "PEDRO MART", "addr": "9697 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52864999990827, "lon": -98.4981700005503, "status": "FULLY REGULATED, 3 active tank(s)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102377090", "flag": false, "dist": 0.921, "dir": "NE", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": false, "elev": 845.4, "relElev": 22.3}, {"db": "RCRA_NLR", "name": "NORTH PARK LINCOLN-MERCURY INC", "addr": "9626 SAN PEDRO AVE, SAN ANTONIO", "lat": 29.52833, "lon": -98.49783, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005080991", "flag": false, "dist": 0.921, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 848.7, "relElev": 25.6}, {"db": "CWA", "name": "MAMAGARCIA SUBDIVISION", "addr": "1802 JACKSON KELLER RD, SAN ANTONIO", "lat": 29.51304, "lon": -98.52301, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070363686", "flag": false, "dist": 0.941, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 772.9, "relElev": -50.2}, {"db": "PST", "name": "HEB 389", "addr": "6000 WEST AVE, SAN ANTONIO", "lat": 29.51516, "lon": -98.52495, "status": "1 tank(s) in use (Gasoline) \u00b7 from TCEQ delivery certificates (not yet in TCEQ's PST map layer)", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101727733", "flag": false, "dist": 0.994, "dir": "WSW", "dbLabel": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "inAstm": false, "elev": 774.7, "relElev": -48.4}], "dbs": [{"key": "NPL", "label": "Federal Superfund (NPL)", "color": "#6a1b9a", "astm": 1.0, "adj": "", "count": 0}, {"key": "SEMS", "label": "Federal Superfund, non-NPL (SEMS)", "color": "#ab47bc", "astm": 0.5, "adj": "", "count": 0}, {"key": "STATE_SF", "label": "Texas State Superfund", "color": "#4a148c", "astm": 1.0, "adj": "", "count": 0}, {"key": "TSDF", "label": "RCRA treatment/storage/disposal", "color": "#b71c1c", "astm": 0.5, "adj": "", "count": 0}, {"key": "IHW", "label": "Texas industrial & haz. waste (IHW)", "color": "#c62828", "astm": 0.5, "adj": "", "count": 0}, {"key": "VCP", "label": "Texas Voluntary Cleanup Program (VCP)", "color": "#00897b", "astm": 0.5, "adj": "", "count": 0}, {"key": "IOP", "label": "Texas Innocent Owner/Operator (IOP)", "color": "#26a69a", "astm": 0.5, "adj": "", "count": 0}, {"key": "BROWNFIELD", "label": "Texas Brownfield site assessment", "color": "#558b2f", "astm": 0.5, "adj": "", "count": 0}, {"key": "DRYCLEANER", "label": "Texas dry cleaner remediation site", "color": "#d81b60", "astm": 0.25, "adj": "", "count": 0}, {"key": "MSW", "label": "Texas solid waste facility / landfill", "color": "#6d4c41", "astm": 0.5, "adj": "", "count": 0}, {"key": "LPST", "label": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "adj": "", "count": 21}, {"key": "RCRA_GEN", "label": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "adj": "property & adjoining", "count": 4}, {"key": "RCRA_NLR", "label": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "adj": "property & adjoining", "count": 14}, {"key": "PST", "label": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "adj": "property & adjoining", "count": 6}, {"key": "TRI", "label": "Toxics Release Inventory (TRI)", "color": "#5e35b1", "astm": null, "adj": "", "count": 0}, {"key": "CAA", "label": "Air permit (CAA)", "color": "#8d6e63", "astm": null, "adj": "", "count": 1}, {"key": "CWA", "label": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "adj": "", "count": 9}], "address": "1100 NW Loop 410, San Antonio, TX 78213", "date": "2026-11-21", "tol": 5};
+const R = D.records, DB = Object.fromEntries(D.dbs.map(d => [d.key, d]));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtRel = v => v == null ? "n/a" : (v > 0 ? "+" : "") + v.toFixed(0);
+
+// ---- map
+const map = L.map("map", {preferCanvas: true, zoomSnap: 0.25}).setView(D.site, 14);
+const bases = {
+  "Streets": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 19, attribution: "Tiles &copy; Esri, HERE, Garmin, USGS, OpenStreetMap contributors"}),
+  "Aerial": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 19, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics"}),
+  "Topographic (USGS)": L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 16, attribution: "USGS The National Map"}),
+};
+bases["Streets"].addTo(map);
+L.control.layers(bases, null, {collapsed: false}).addTo(map);
+L.control.scale({imperial: true, metric: false}).addTo(map);
+const site = L.latLng(D.site);
+L.marker(site, {zIndexOffset: 1000}).addTo(map).bindPopup("<b>Subject property</b><br>" + esc(D.address));
+const ringR = [0.125, 0.25, 0.5, 1].filter(r => r <= Math.max(D.radius, 1));
+ringR.forEach(r => {
+  L.circle(site, {radius: r * 1609.344, color: "#13212e", weight: 1.2, fill: false, dashArray: "6 5",
+    interactive: false}).addTo(map);
+  L.marker([site.lat + r / 69.05, site.lng], {interactive: false, icon: L.divIcon({className: "ringlbl",
+    html: (r === 0.125 ? "1/8" : r === 0.25 ? "1/4" : r === 0.5 ? "1/2" : r) + " mi", iconSize: [44, 16], iconAnchor: [22, 8]})}).addTo(map);
+});
+const fit = () => map.fitBounds(site.toBounds(2 * ringR[ringR.length - 1] * 1609.344), {padding: [12, 12]});
+fit();
+window.addEventListener("load", () => { map.invalidateSize(); fit(); });
+
+const legend = L.control({position: "bottomleft"});
+legend.onAdd = () => { const d = L.DomUtil.create("div", "legend");
+  d.innerHTML = D.dbs.filter(x => x.count).map(x => `<div><span class="dot" style="background:${x.color}"></span> ${esc(x.label)}</div>`).join("")
+    + '<div><span class="dot" style="background:#fff;border:2px solid #000"></span> violation / leak / Superfund</div>';
+  return d; };
+legend.addTo(map);
+
+R.forEach((r, i) => {
+  r.i = i;
+  r.m = L.circleMarker([r.lat, r.lon], {radius: r.inAstm ? 7 : 5, color: r.flag ? "#000" : "#fff",
+    weight: r.flag ? 2.5 : 1, fillColor: DB[r.db].color, fillOpacity: r.inAstm ? 0.95 : 0.55});
+  r.m.bindPopup(() => `<b>${esc(r.name)}</b><br>${esc(DB[r.db].label)}<br>${esc(r.addr)}<br>` +
+    `${r.dist.toFixed(2)} mi ${r.dir} &middot; elevation vs site: ${fmtRel(r.relElev)} ft<br>` +
+    `${r.inAstm ? '<span class="badge">inside ASTM distance</span>' : '<span class="badge ok">outside ASTM distance</span>'}<br>` +
+    `${esc(r.status)}` + (r.link ? `<br><a href="${esc(r.link)}" target="_blank" rel="noopener">Agency record</a>` : ""));
+});
+
+// ---- filters
+const state = {dbs: new Set(D.dbs.filter(d => d.astm !== null).map(d => d.key)), sort: "dist", asc: true};
+const dbl = document.getElementById("dblist");
+dbl.innerHTML = D.dbs.map(d => `<label><input type="checkbox" value="${d.key}"><span class="dot" style="background:${d.color}"></span>
+  ${esc(d.label)} (${d.count})<span class="astm">${d.astm === null ? "supplemental" : "ASTM " + d.astm + " mi" + (d.adj ? "*" : "")}</span></label>`).join("");
+const boxes = [...dbl.querySelectorAll("input")];
+const syncBoxes = () => boxes.forEach(b => b.checked = state.dbs.has(b.value));
+boxes.forEach(b => b.onchange = () => { b.checked ? state.dbs.add(b.value) : state.dbs.delete(b.value); draw(); });
+document.getElementById("bAstm").onclick = () => { state.dbs = new Set(D.dbs.filter(d => d.astm !== null).map(d => d.key)); syncBoxes(); draw(); };
+document.getElementById("bAll").onclick = () => { state.dbs = new Set(D.dbs.map(d => d.key)); syncBoxes(); draw(); };
+document.getElementById("bNone").onclick = () => { state.dbs = new Set(); syncBoxes(); draw(); };
+["fDist", "fAstm", "fUp", "fFlag"].forEach(id => document.getElementById(id).onchange = draw);
+document.getElementById("fText").oninput = draw;
+document.querySelectorAll("th[data-k]").forEach(th => th.onclick = () => {
+  const k = th.dataset.k; state.asc = state.sort === k ? !state.asc : true; state.sort = k; draw(); });
+
+function visible() {
+  const maxD = +document.getElementById("fDist").value, astm = document.getElementById("fAstm").checked,
+        up = document.getElementById("fUp").checked, flag = document.getElementById("fFlag").checked,
+        q = document.getElementById("fText").value.trim().toLowerCase();
+  return R.filter(r => state.dbs.has(r.db) && r.dist <= maxD && (!astm || r.inAstm) &&
+    (!up || (r.relElev != null && r.relElev > D.tol)) &&
+    (!flag || r.flag || ["NPL", "SEMS", "STATE_SF", "LPST"].includes(r.db)) &&
+    (!q || (r.name + " " + r.addr + " " + r.status + " " + DB[r.db].label).toLowerCase().includes(q)));
+}
+function draw() {
+  const rows = visible(), k = state.sort, s = state.asc ? 1 : -1;
+  rows.sort((a, b) => { let x = k === "db" ? DB[a.db].label : a[k], y = k === "db" ? DB[b.db].label : b[k];
+    if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "string" ? x.localeCompare(y) : x - y) * s || a.dist - b.dist; });
+  const shown = new Set(rows.map(r => r.i));
+  R.forEach(r => shown.has(r.i) ? r.m.addTo(map) : r.m.remove());
+  document.getElementById("count").textContent = `(${rows.length} of ${R.length} shown)`;
+  document.getElementById("tbody").innerHTML = rows.map(r => `<tr data-i="${r.i}" class="${r.flag ? "flag" : ""}">
+    <td><span class="dot" style="background:${DB[r.db].color}"></span> ${esc(DB[r.db].label)}</td>
+    <td>${esc(r.name)}</td><td>${esc(r.addr)}</td><td class="num">${r.dist.toFixed(3)}</td><td>${r.dir}</td>
+    <td class="num ${r.relElev > D.tol ? "up" : r.relElev < -D.tol ? "down" : ""}">${fmtRel(r.relElev)}</td>
+    <td>${r.astm === null ? '<span class="small">supplemental</span>' : r.inAstm ? '<span class="badge">inside ' + r.astm + ' mi</span>' : '<span class="badge ok">outside</span>'}</td>
+    <td>${esc(r.status)}</td><td>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">record</a>` : ""}</td></tr>`).join("")
+    || '<tr><td colspan="9" class="small" style="padding:14px">No records match these filters.</td></tr>';
+}
+document.getElementById("tbody").onclick = e => { const tr = e.target.closest("tr[data-i]"); if (!tr) return;
+  const r = R[+tr.dataset.i]; map.setView([r.lat, r.lon], Math.max(map.getZoom(), 17)); r.m.openPopup();
+  document.getElementById("map").scrollIntoView({behavior: "smooth", block: "center"}); };
+
+// ---- exports
+document.getElementById("bCsv").onclick = () => {
+  const cols = [["Database", r => DB[r.db].label], ["Name", r => r.name], ["Address", r => r.addr],
+    ["Distance (mi)", r => r.dist.toFixed(3)], ["Direction", r => r.dir], ["Elevation vs site (ft)", r => r.relElev ?? ""],
+    ["ASTM search distance (mi)", r => r.astm ?? "supplemental"], ["Inside ASTM distance", r => r.inAstm ? "Yes" : "No"],
+    ["Status", r => r.status], ["Latitude", r => r.lat], ["Longitude", r => r.lon], ["Agency record", r => r.link]];
+  const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+  const csv = [cols.map(c => q(c[0])).join(",")].concat(visible().sort((a, b) => a.dist - b.dist)
+    .map(r => cols.map(c => q(c[1](r))).join(","))).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + csv], {type: "text/csv"}));
+  a.download = "radius_records_" + D.date + ".csv"; a.click(); };
+document.getElementById("bCopy").onclick = () => {
+  const txt = "Environmental screening, " + D.address + " (" + D.date + ")\n" +
+    [...document.querySelectorAll("#findings li")].map(li => "- " + li.innerText).join("\n");
+  navigator.clipboard.writeText(txt).then(() => { const b = document.getElementById("bCopy");
+    b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy findings", 1500); }); };
+
+syncBoxes(); draw();
+</script></body></html>

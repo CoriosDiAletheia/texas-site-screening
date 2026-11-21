@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radius Report: 16285 PARK TEN PL, HOUSTON, TX, 77084</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--ink:#1d2329;--muted:#5f6b76;--line:#e3e7eb;--bg:#f6f7f9;--card:#fff;--accent:#0b5cad;--warn:#c62828}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+header{background:#13212e;color:#fff;padding:14px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+header h1{margin:0;font-size:18px} header .meta{color:#b8c4ce;font-size:12px;margin-top:3px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;font-size:13px;border:1px solid #c9d1d9;background:#fff;color:var(--ink);padding:7px 12px;border-radius:6px;cursor:pointer}
+header button{background:#22374a;color:#fff;border-color:#3b556c} button:hover{filter:brightness(.95)}
+main{padding:16px 20px;max-width:1500px;margin:0 auto}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:5px 12px;font-size:12px}
+.chip b{color:var(--muted);font-weight:normal;margin-right:4px} .zone-hit{border-color:#e65100;background:#fff3e0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi-n{font-size:26px;font-weight:bold} .kpi-l{color:var(--muted);font-size:12px} .kpi-l span{color:#9aa5af}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h2{font-size:14px;margin:0 0 8px} #map{height:560px;border-radius:8px;border:1px solid var(--line)}
+.findings{margin:0;padding-left:18px;line-height:1.5} .findings li{margin-bottom:4px}
+.filters{display:grid;grid-template-columns:1fr;gap:10px}
+.dblist label{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:13px;cursor:pointer}
+.dblist .astm{margin-left:auto;color:var(--muted);font-size:11px;white-space:nowrap}
+.dot{width:11px;height:11px;border-radius:50%;flex:none;display:inline-block}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,input[type=search]{font:inherit;font-size:13px;padding:6px 8px;border:1px solid #c9d1d9;border-radius:6px}
+input[type=search]{flex:1;min-width:160px}
+.toggle{display:flex;gap:6px;align-items:center;font-size:13px;cursor:pointer}
+.small{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{position:sticky;top:0;background:#eef1f4;text-align:left;padding:7px 8px;cursor:pointer;white-space:nowrap;user-select:none}
+th:hover{background:#e2e7ec} td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr{cursor:pointer} tbody tr:hover{background:#f3f7fb} tr.flag td:first-child{box-shadow:inset 3px 0 0 var(--warn)}
+.tablewrap{max-height:620px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+.num{text-align:right;white-space:nowrap} .up{color:var(--warn);font-weight:bold} .down{color:#2e7d32}
+.badge{display:inline-block;font-size:11px;padding:1px 6px;border-radius:9px;background:#fdecea;color:var(--warn);white-space:nowrap}
+.badge.ok{background:#e8f5e9;color:#2e7d32} a{color:var(--accent)}
+.ringlbl{background:rgba(255,255,255,.85);border:1px solid #13212e;border-radius:8px;font-size:10px;font-weight:bold;text-align:center;line-height:14px;color:#13212e}
+.legend{background:#fff;padding:6px 8px;border-radius:6px;font-size:11px;line-height:1.5;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+footer{font-size:11px;color:var(--muted);padding:14px 20px 30px;max-width:1500px;margin:0 auto;line-height:1.5}
+.warnlist{color:var(--warn);margin:6px 0 0;padding-left:18px}
+@media (max-width:960px){.grid{grid-template-columns:1fr} #map{height:420px}}
+@media print{header .btns,.filters-card{display:none} body{background:#fff} .tablewrap{max-height:none;overflow:visible}
+ #map{height:430px} .grid{grid-template-columns:1fr} th{position:static}}
+</style></head><body>
+<header>
+  <div><h1>Environmental Screening Radius Report</h1>
+  <div class="meta">16285 PARK TEN PL, HOUSTON, TX, 77084 &middot; generated 2026-11-21 &middot; search radius 1 mi</div></div>
+  <div class="btns">
+    <button id="bCsv" title="Download the rows currently shown in the table">Export CSV</button>
+    <button id="bCopy" title="Copy the key findings as text">Copy findings</button>
+    <button onclick="window.print()" title="Print or save as PDF">Print / PDF</button>
+  </div>
+</header>
+<main>
+  <div class="facts">
+    <span class="chip"><b>Coordinates</b>29.78662, -95.66599</span>
+    <span class="chip"><b>Site elevation</b>95 ft</span>
+    <span class="chip "><b>Edwards Aquifer</b>Outside the Edwards Aquifer regulated zones</span>
+  </div>
+  <div class="kpis"><div class="kpi"><div class="kpi-n">54</div><div class="kpi-l">Records found</div></div><div class="kpi"><div class="kpi-n">10</div><div class="kpi-l">Inside ASTM search distance<br><span>needs review</span></div></div><div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Superfund (fed. + state)</div></div><div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Leaking tanks (LPST)<br><span>within 0.5 mi</span></div></div><div class="kpi"><div class="kpi-n">0</div><div class="kpi-l">Higher than site<br><span>inside ASTM dist.</span></div></div><div class="kpi"><div class="kpi-n">4</div><div class="kpi-l">Violations / flags</div></div></div>
+  <div class="grid">
+    <div><div id="map"></div></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="card"><h2>Key findings</h2><ul class="findings" id="findings"><li>No federal NPL Superfund sites within 1 mi.</li><li>No Texas State Superfund sites within 1 mi.</li><li>No leaking petroleum storage tank sites within 0.5 mi.</li><li><b>1</b> Texas Voluntary Cleanup Program site(s) within 0.5 mi. Nearest: 8 ACRES/SOUTH SIDE IH 10 (0.36 mi SW, about the same elevation as the site).</li><li><b>5</b> RCRA hazardous waste generator(s) within 0.25 mi. Nearest: ARAMCO SERVICES COMPANY (0.17 mi NNE, about the same elevation as the site).</li><li><b>4</b> former/inactive RCRA handler(s) within 0.25 mi. Nearest: KELLOGG BROWN &amp; ROOT LLC - TECHNOLOGY CTR (0.19 mi NNE, about the same elevation as the site).</li><li><b>3</b> EPA-regulated facility(ies) with current violations or significant non-compliance.</li></ul><ul class="warnlist"><li>1 EPA ECHO record(s) were left out because EPA&#x27;s coordinates place them here while their own address is in another city and ZIP region.</li></ul></div>
+      <div class="card filters-card"><h2>Filters</h2>
+        <div class="filters">
+          <div class="dblist" id="dblist"></div>
+          <div class="row"><button id="bAstm">ASTM databases only</button><button id="bAll">All</button><button id="bNone">None</button></div>
+          <div class="row">
+            <label class="small">Max distance
+              <select id="fDist"><option value="0.125">1/8 mi</option><option value="0.25">1/4 mi</option>
+              <option value="0.5">1/2 mi</option><option value="1" selected>1 mi</option><option value="99">All</option></select></label>
+          </div>
+          <label class="toggle"><input type="checkbox" id="fAstm"> Only records inside their ASTM search distance</label>
+          <label class="toggle"><input type="checkbox" id="fUp"> Only records higher than the site (possible upgradient)</label>
+          <label class="toggle"><input type="checkbox" id="fFlag"> Only violations, leaks and Superfund</label>
+          <input type="search" id="fText" placeholder="Search name, address or status">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:12px">
+    <div class="row" style="justify-content:space-between;margin-bottom:8px">
+      <h2 style="margin:0">Records <span class="small" id="count"></span></h2>
+      <span class="small">Click a row to locate it on the map. Click a header to sort.</span>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th data-k="db">Database</th><th data-k="name">Name</th><th data-k="addr">Address</th>
+      <th data-k="dist" class="num">Dist. (mi)</th><th data-k="dir">Dir.</th><th data-k="relElev" class="num">Elev. vs site (ft)</th>
+      <th data-k="inAstm">ASTM distance</th><th data-k="status">Status</th><th>Link</th></tr></thead>
+      <tbody id="tbody"></tbody></table></div>
+  </div>
+  
+</main>
+<footer>
+  <b>Sources</b> (pulled 2026-11-21): U.S. Census Geocoder; EPA ECHO (RCRA, TRI, CAA, CWA); EPA SEMS via Envirofacts
+  (federal Superfund, active Texas sites); TCEQ Leaking Petroleum Storage Tank database (data.texas.gov, located by
+  TCEQ PST coordinates or geocoded address); TCEQ GIS services: Petroleum Storage Tanks, State Superfund,
+  Industrial &amp; Hazardous Waste, Edwards Aquifer zones; USGS 3DEP elevation (EPQS). Basemaps: CARTO / OpenStreetMap
+  contributors, USGS The National Map.<br>
+  <b>Limits.</b> Screening aid for environmental professionals, not an ASTM E1527-21 standard database report.
+  Search distances follow the ASTM E1527-21 minimums for the databases included; RCRA generators and registered tanks
+  use a 0.25 mi screen for "property and adjoining". Relative elevation is a proxy only: groundwater flow direction
+  must be confirmed from site data. Records with missing or approximate coordinates in the source databases may be
+  absent or misplaced (orphan records are not resolved).
+</footer>
+<script>
+const D = {"site": [29.786622613969, -95.665994037726], "radius": 1.0, "records": [{"db": "CWA", "name": "COCHON PROPERTIES, LLC", "addr": "16285 PARK TEN PLACE, SUITE 100, HOUSTON", "lat": 29.78672, "lon": -95.66496, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110056348643", "flag": false, "dist": 0.062, "dir": "E", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.1, "relElev": -0.8}, {"db": "CWA", "name": "PROBE RESOURCES US LTD", "addr": "16285 PARK TEN PLACE, SUITE 120, HOUSTON", "lat": 29.78672, "lon": -95.66496, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110055098120", "flag": false, "dist": 0.062, "dir": "E", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.1, "relElev": -0.8}, {"db": "CWA", "name": "ROOSTER PETROLEUM, LLC", "addr": "16285 PARK TEN PLACE, SUITE 120, HOUSTON", "lat": 29.78672, "lon": -95.66496, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110055098139", "flag": false, "dist": 0.062, "dir": "E", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.1, "relElev": -0.8}, {"db": "CWA", "name": "WILLOW WATERHOLE HIKE & BIKE TRAIL", "addr": "8300 DRYAD DR, HOUSTON", "lat": 29.787135, "lon": -95.667057, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071409906", "flag": false, "dist": 0.073, "dir": "WNW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 95.9, "relElev": 1.0}, {"db": "CWA", "name": "MURPHY EXPLORATION & PRODUCTION  LLOYD RIDGE 47 WELL A", "addr": "16290 KATY FREEWAY, STE 600, HOUSTON", "lat": 29.7854, "lon": -95.66598, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110037944829", "flag": false, "dist": 0.084, "dir": "S", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 93.5, "relElev": -1.4}, {"db": "CWA", "name": "MURPHY EXPLORATION LLOYD RIDGE 511 WELL A", "addr": "16290 KATY FREEWAY, STE 600, HOUSTON", "lat": 29.7854, "lon": -95.66598, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110037944561", "flag": false, "dist": 0.084, "dir": "S", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 93.5, "relElev": -1.4}, {"db": "RCRA_GEN", "name": "ARAMCO SERVICES COMPANY", "addr": "16300 PARK ROW, HOUSTON", "lat": 29.78907, "lon": -95.66535, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110059775998", "flag": false, "dist": 0.173, "dir": "NNE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": true, "elev": 95.5, "relElev": 0.6}, {"db": "RCRA_GEN", "name": "ACS LABORATORIES", "addr": "16203 PARK ROW STE 100, HOUSTON", "lat": 29.78905, "lon": -95.66466, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005148090", "flag": false, "dist": 0.186, "dir": "NNE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": true, "elev": 95.4, "relElev": 0.5}, {"db": "RCRA_NLR", "name": "KELLOGG BROWN & ROOT LLC - TECHNOLOGY CTR", "addr": "16200 PARK ROW, HOUSTON", "lat": 29.78903, "lon": -95.66456, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110017122558", "flag": false, "dist": 0.187, "dir": "NNE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": true, "elev": 95.4, "relElev": 0.5}, {"db": "RCRA_GEN", "name": "SABIC AMERICAS INC TECHNOLOGY CENTER", "addr": "16200-A PARK ROW, HOUSTON", "lat": 29.78903, "lon": -95.66456, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005180437", "flag": false, "dist": 0.187, "dir": "NNE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": true, "elev": 95.4, "relElev": 0.5}, {"db": "RCRA_GEN", "name": "INHANCE TECHNOLOGIES - SUITE 100", "addr": "16223 PARK ROW, HOUSTON", "lat": 29.789011, "lon": -95.664412, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110002343633", "flag": false, "dist": 0.19, "dir": "NNE", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": true, "elev": 95.1, "relElev": 0.2}, {"db": "RCRA_NLR", "name": "SCHLUMBERGER OILPHASE DBR PARK ROW", "addr": "16223 PARK ROW STE 170, HOUSTON", "lat": 29.789011, "lon": -95.664412, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110017285819", "flag": false, "dist": 0.19, "dir": "NNE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": true, "elev": 95.1, "relElev": 0.2}, {"db": "CWA", "name": "GUARDIAN DECOMMISSIONING, INC.", "addr": "16340 PARK TEN PLACE, HOUSTON", "lat": 29.78668, "lon": -95.66244, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071425994", "flag": false, "dist": 0.213, "dir": "E", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.9, "relElev": 0.0}, {"db": "RCRA_NLR", "name": "BAKER INDUSTRIAL CHEMICALS", "addr": "16155 PARK ROW NO 160, HOUSTON", "lat": 29.78896, "lon": -95.663599, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005114660", "flag": false, "dist": 0.216, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": true, "elev": 95.5, "relElev": 0.6}, {"db": "RCRA_NLR", "name": "SCHLUMBERGER INC", "addr": "16115 PARK ROW SUITE 190, HOUSTON", "lat": 29.78896, "lon": -95.66318, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110023055986", "flag": false, "dist": 0.234, "dir": "NE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": true, "elev": 96.2, "relElev": 1.3}, {"db": "RCRA_GEN", "name": "KRATON INNOVATION CENTER - HOUSTON", "addr": "16400 PARK ROW, HOUSTON", "lat": 29.78927, "lon": -95.66846, "status": "SQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005064651", "flag": false, "dist": 0.235, "dir": "NW", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": true, "elev": 96.4, "relElev": 1.5}, {"db": "CWA", "name": "KRATON INNOVATION CENTER - HOUSTON", "addr": "16400 PARK ROW, HOUSTON", "lat": 29.78927, "lon": -95.66846, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005064651", "flag": false, "dist": 0.235, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.4, "relElev": 1.5}, {"db": "CWA", "name": "OAKS OF PARK ROW", "addr": "SITE IS LOCATED APPROXIMATELY 0.35 MILES NORTHEAST, HOUSTON", "lat": 29.789064, "lon": -95.66321, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070830989", "flag": false, "dist": 0.237, "dir": "NE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.3, "relElev": 1.4}, {"db": "CWA", "name": "VOLVO CARS WEST HOUSTON", "addr": "15935 KATY FWY, HOUSTON", "lat": 29.78448, "lon": -95.66271, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070365361", "flag": false, "dist": 0.246, "dir": "SE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 92.5, "relElev": -2.4}, {"db": "RCRA_NLR", "name": "FORTIS INTERNATIONAL", "addr": "16522 PARK ROW BLVD, HOUSTON", "lat": 29.78931, "lon": -95.66911, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110011425662", "flag": false, "dist": 0.263, "dir": "NW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 97.0, "relElev": 2.1}, {"db": "RCRA_NLR", "name": "NATIONAL OILWELL VARCO MONOFLO PARK TEN FACILITY", "addr": "16503 PARK ROW, HOUSTON", "lat": 29.78931, "lon": -95.6691, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005159274", "flag": false, "dist": 0.263, "dir": "NW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 97.0, "relElev": 2.1}, {"db": "CWA", "name": "PARK TEN MUD", "addr": "16500 PARK ROW, HOUSTON", "lat": 29.789312, "lon": -95.669279, "status": "Current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110000915813", "flag": true, "dist": 0.271, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.8, "relElev": 1.9}, {"db": "CWA", "name": "PARK TEN UTILITY DISTRICT WASTEWATER TREATMENT FACILITIES", "addr": "16500 PARK ROW, HOUSTON", "lat": 29.789312, "lon": -95.669279, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110061550717", "flag": false, "dist": 0.271, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.8, "relElev": 1.9}, {"db": "CWA", "name": "PARK TEN WASTEWATER TREATMENT PLANT", "addr": "16510 PARK ROW, HOUSTON", "lat": 29.78931, "lon": -95.66942, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071708884", "flag": false, "dist": 0.277, "dir": "NW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.5, "relElev": 1.6}, {"db": "RCRA_NLR", "name": "MOHEAT INCORPORATED", "addr": "15915 KATY FWY STE 170, HOUSTON", "lat": 29.78448, "lon": -95.66164, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005074221", "flag": false, "dist": 0.3, "dir": "ESE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 93.2, "relElev": -1.7}, {"db": "RCRA_NLR", "name": "EUROPEAN GAS TURBINES", "addr": "15950 PARK ROW, HOUSTON", "lat": 29.78896, "lon": -95.66174, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005012057", "flag": false, "dist": 0.302, "dir": "ENE", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 95.0, "relElev": 0.1}, {"db": "RCRA_NLR", "name": "SEARS ROEBUCK AND CO", "addr": "16555 PARK ROW, HOUSTON", "lat": 29.78932, "lon": -95.6702, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005176950", "flag": false, "dist": 0.314, "dir": "NW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 96.7, "relElev": 1.8}, {"db": "CWA", "name": "ATWOOD OCEANICS, INC.", "addr": "15835 PARK TEN PL, HOUSTON", "lat": 29.78658, "lon": -95.66047, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110055098111", "flag": false, "dist": 0.331, "dir": "E", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.1, "relElev": -0.8}, {"db": "VCP", "name": "8 ACRES/SOUTH SIDE IH 10", "addr": "HOUSTON", "lat": 29.783677554609397, "lon": -95.67105466637521, "status": "Voluntary Cleanup Program, ID 513", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN102213485", "flag": true, "dist": 0.365, "dir": "SW", "dbLabel": "Texas Voluntary Cleanup Program (VCP)", "color": "#00897b", "astm": 0.5, "inAstm": true, "elev": 94.7, "relElev": -0.2}, {"db": "CWA", "name": "JEFF HAAS MAZDA", "addr": "BOUNDED ON THE NORTH BY THE KATY FREEWAY AND ON TH, HOUSTON", "lat": 29.783581, "lon": -95.671649, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070357919", "flag": false, "dist": 0.399, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.1, "relElev": 1.2}, {"db": "CWA", "name": "CJM - THE SOIL SUPERMARKET", "addr": "16717 KATY FWY, HOUSTON", "lat": 29.784519, "lon": -95.672416, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110070374444", "flag": false, "dist": 0.412, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 94.9, "relElev": 0.0}, {"db": "CWA", "name": "JEFF HAAS MAZDA - PARKING DECK", "addr": "16711 KATY FWY, HOUSTON", "lat": 29.783025, "lon": -95.671774, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071657352", "flag": false, "dist": 0.427, "dir": "SW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 86.9, "relElev": -8.0}, {"db": "RCRA_GEN", "name": "BAYOU CITY HEMP", "addr": "16700 PARK ROW, HOUSTON", "lat": 29.789377, "lon": -95.673015, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071248962", "flag": false, "dist": 0.462, "dir": "WNW", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 97.8, "relElev": 2.9}, {"db": "RCRA_NLR", "name": "PATENTED SYSTEMS INC", "addr": "16810 BARKER SPRINGS RD STE 210, HOUSTON", "lat": 29.785616, "lon": -95.673804, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110006124050", "flag": false, "dist": 0.473, "dir": "W", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 95.8, "relElev": 0.9}, {"db": "RCRA_NLR", "name": "PARK TEN PLANT", "addr": "16727 PARK ROW, HOUSTON", "lat": 29.788333, "lon": -95.673889, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110002378427", "flag": false, "dist": 0.488, "dir": "WNW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 98.9, "relElev": 4.0}, {"db": "CWA", "name": "WEST HOUSTON GENESIS - HYUNDAI", "addr": "16803 KATY FWY, HOUSTON", "lat": 29.78387, "lon": -95.67367, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071365441", "flag": false, "dist": 0.498, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 96.6, "relElev": 1.7}, {"db": "RCRA_NLR", "name": "GEOCHEM RESEARCH INC", "addr": "16840 BARKER SPRINGS ROAD, HOUSTON", "lat": 29.785618, "lon": -95.674231, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005081142", "flag": false, "dist": 0.499, "dir": "W", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 97.1, "relElev": 2.2}, {"db": "RCRA_GEN", "name": "IMPAC EXPLORATION SERVICES", "addr": "16840 BARKER SPRINGS RD, HOUSTON", "lat": 29.785655, "lon": -95.675989, "status": "SQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071714915", "flag": false, "dist": 0.603, "dir": "W", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 97.3, "relElev": 2.4}, {"db": "CWA", "name": "DIAMOND OFFSHORE DRILLING LIMITED", "addr": "15415 KATY FREEWAY, SUITE 100, HOUSTON", "lat": 29.78447, "lon": -95.65598, "status": "Current violation, penalties $100,584", "link": "https://echo.epa.gov/detailed-facility-report?fid=110054114310", "flag": true, "dist": 0.619, "dir": "ESE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 92.5, "relElev": -2.4}, {"db": "LPST", "name": "MD SEIS USA", "addr": "16850 PARK ROW, HOUSTON", "lat": 29.789969459731566, "lon": -95.6757591268579, "status": "Closed 1997-06-05, reported 1992-12-07, LPST ID 105503", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101862662", "flag": false, "dist": 0.63, "dir": "WNW", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 101.4, "relElev": 6.5}, {"db": "RCRA_NLR", "name": "CROWN JEEP EAGLE", "addr": "16835 KATY FREEWAY, HOUSTON", "lat": 29.78456, "lon": -95.67629, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005085807", "flag": false, "dist": 0.634, "dir": "WSW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 98.4, "relElev": 3.5}, {"db": "CWA", "name": "17000 KATY FREEWAY-PARKING STRUCTURE ADDITION", "addr": "17000 KATY FWY, HOUSTON", "lat": 29.78547, "lon": -95.67793, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110034570890", "flag": false, "dist": 0.72, "dir": "W", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 99.0, "relElev": 4.1}, {"db": "CWA", "name": "HARRIS CO MUD 216 WWTP", "addr": "2500' SW INTX OF I-H 10 AND BAKER CLODINE RD, HOUSTON", "lat": 29.782611, "lon": -95.67725, "status": "Current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110009775680", "flag": true, "dist": 0.73, "dir": "WSW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 95.1, "relElev": 0.2}, {"db": "CWA", "name": "TRANSWESTERN KATY FREEWAY", "addr": "TEN PLAZA WWTP, BARKER CYPRESS, HOUSTON", "lat": 29.783333, "lon": -95.654167, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110039175530", "flag": false, "dist": 0.745, "dir": "ESE", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 92.4, "relElev": -2.5}, {"db": "RCRA_NLR", "name": "CAROLINA MIRROR COMPANY", "addr": "17015 PARK ROW, HOUSTON", "lat": 29.789, "lon": -95.67944, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110001867944", "flag": false, "dist": 0.823, "dir": "WNW", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 102.5, "relElev": 7.6}, {"db": "CAA", "name": "CAROLINA MIRROR COMPANY", "addr": "17015 PARK ROW, HOUSTON", "lat": 29.789, "lon": -95.67944, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110001867944", "flag": false, "dist": 0.823, "dir": "WNW", "dbLabel": "Air permit (CAA)", "color": "#8d6e63", "astm": null, "inAstm": false, "elev": 102.5, "relElev": 7.6}, {"db": "RCRA_GEN", "name": "ENERGY TRANSFER COMPANY - HOUSTON PIPELINE COMPANY, L.P.", "addr": "15385 KATY FREEWAY, HOUSTON", "lat": 29.78445, "lon": -95.65246, "status": "VSQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110059674552", "flag": false, "dist": 0.825, "dir": "E", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 91.6, "relElev": -3.3}, {"db": "CWA", "name": "PARK ROW TERRACE MASS GRADING", "addr": "17150 PARK ROW, HOUSTON", "lat": 29.78896, "lon": -95.67962, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071204559", "flag": false, "dist": 0.833, "dir": "W", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 102.7, "relElev": 7.8}, {"db": "RCRA_NLR", "name": "CROWN AMC JEEP RENAULT INC", "addr": "17105 KATY FWY, HOUSTON", "lat": 29.784519, "lon": -95.67973, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005076764", "flag": false, "dist": 0.836, "dir": "W", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 98.3, "relElev": 3.4}, {"db": "CWA", "name": "PARK ROW TERRACE", "addr": "SITE IS LOCATED APPROXIMATELY 0.50 MILES EAST OF T, HOUSTON", "lat": 29.789139, "lon": -95.679637, "status": "No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110071177336", "flag": false, "dist": 0.836, "dir": "WNW", "dbLabel": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "inAstm": false, "elev": 102.6, "relElev": 7.7}, {"db": "RCRA_NLR", "name": "SERCEL INC", "addr": "17155 PARK ROW, HOUSTON", "lat": 29.78892, "lon": -95.68015, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005061379", "flag": false, "dist": 0.864, "dir": "W", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 102.5, "relElev": 7.6}, {"db": "LPST", "name": "AIS CRANETEX", "addr": "17111 KATY FWY, HOUSTON", "lat": 29.783637145289724, "lon": -95.68018892470464, "status": "Closed 2001-07-24, reported 1992-05-13, LPST ID 103120", "link": "https://www15.tceq.texas.gov/crpub/index.cfm?fuseaction=regent.validateRE&re_ref_num_txt=RN101770550", "flag": false, "dist": 0.876, "dir": "WSW", "dbLabel": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "inAstm": false, "elev": 97.7, "relElev": 2.8}, {"db": "RCRA_GEN", "name": "SERCEL FALLSTONE", "addr": "17200 PARK ROW, HOUSTON", "lat": 29.78893, "lon": -95.68081, "status": "SQG, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005152967", "flag": false, "dist": 0.903, "dir": "W", "dbLabel": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "inAstm": false, "elev": 102.1, "relElev": 7.2}, {"db": "RCRA_NLR", "name": "HARRIS COUNTY VEHICLE MAINTENANCE CENTER", "addr": "17423 KATY FRWY, HOUSTON", "lat": 29.78445, "lon": -95.68234, "status": "Other, No current violation", "link": "https://echo.epa.gov/detailed-facility-report?fid=110005013822", "flag": false, "dist": 0.992, "dir": "W", "dbLabel": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "inAstm": false, "elev": 97.2, "relElev": 2.3}], "dbs": [{"key": "NPL", "label": "Federal Superfund (NPL)", "color": "#6a1b9a", "astm": 1.0, "adj": "", "count": 0}, {"key": "SEMS", "label": "Federal Superfund, non-NPL (SEMS)", "color": "#ab47bc", "astm": 0.5, "adj": "", "count": 0}, {"key": "STATE_SF", "label": "Texas State Superfund", "color": "#4a148c", "astm": 1.0, "adj": "", "count": 0}, {"key": "TSDF", "label": "RCRA treatment/storage/disposal", "color": "#b71c1c", "astm": 0.5, "adj": "", "count": 0}, {"key": "IHW", "label": "Texas industrial & haz. waste (IHW)", "color": "#c62828", "astm": 0.5, "adj": "", "count": 0}, {"key": "VCP", "label": "Texas Voluntary Cleanup Program (VCP)", "color": "#00897b", "astm": 0.5, "adj": "", "count": 1}, {"key": "IOP", "label": "Texas Innocent Owner/Operator (IOP)", "color": "#26a69a", "astm": 0.5, "adj": "", "count": 0}, {"key": "BROWNFIELD", "label": "Texas Brownfield site assessment", "color": "#558b2f", "astm": 0.5, "adj": "", "count": 0}, {"key": "DRYCLEANER", "label": "Texas dry cleaner remediation site", "color": "#d81b60", "astm": 0.25, "adj": "", "count": 0}, {"key": "MSW", "label": "Texas solid waste facility / landfill", "color": "#6d4c41", "astm": 0.5, "adj": "", "count": 0}, {"key": "LPST", "label": "Texas leaking PST (LPST)", "color": "#e65100", "astm": 0.5, "adj": "", "count": 2}, {"key": "RCRA_GEN", "label": "RCRA hazardous waste generator", "color": "#e53935", "astm": 0.25, "adj": "property & adjoining", "count": 9}, {"key": "RCRA_NLR", "label": "RCRA, not a current generator (inactive/other)", "color": "#ef9a9a", "astm": 0.25, "adj": "property & adjoining", "count": 17}, {"key": "PST", "label": "Texas registered PST / UST", "color": "#f9a825", "astm": 0.25, "adj": "property & adjoining", "count": 0}, {"key": "TRI", "label": "Toxics Release Inventory (TRI)", "color": "#5e35b1", "astm": null, "adj": "", "count": 0}, {"key": "CAA", "label": "Air permit (CAA)", "color": "#8d6e63", "astm": null, "adj": "", "count": 1}, {"key": "CWA", "label": "Water discharge permit (CWA)", "color": "#1e88e5", "astm": null, "adj": "", "count": 24}], "address": "16285 PARK TEN PL, HOUSTON, TX, 77084", "date": "2026-11-21", "tol": 5};
+const R = D.records, DB = Object.fromEntries(D.dbs.map(d => [d.key, d]));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtRel = v => v == null ? "n/a" : (v > 0 ? "+" : "") + v.toFixed(0);
+
+// ---- map
+const map = L.map("map", {preferCanvas: true, zoomSnap: 0.25}).setView(D.site, 14);
+const bases = {
+  "Streets": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 19, attribution: "Tiles &copy; Esri, HERE, Garmin, USGS, OpenStreetMap contributors"}),
+  "Aerial": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 19, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics"}),
+  "Topographic (USGS)": L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}",
+    {maxZoom: 16, attribution: "USGS The National Map"}),
+};
+bases["Streets"].addTo(map);
+L.control.layers(bases, null, {collapsed: false}).addTo(map);
+L.control.scale({imperial: true, metric: false}).addTo(map);
+const site = L.latLng(D.site);
+L.marker(site, {zIndexOffset: 1000}).addTo(map).bindPopup("<b>Subject property</b><br>" + esc(D.address));
+const ringR = [0.125, 0.25, 0.5, 1].filter(r => r <= Math.max(D.radius, 1));
+ringR.forEach(r => {
+  L.circle(site, {radius: r * 1609.344, color: "#13212e", weight: 1.2, fill: false, dashArray: "6 5",
+    interactive: false}).addTo(map);
+  L.marker([site.lat + r / 69.05, site.lng], {interactive: false, icon: L.divIcon({className: "ringlbl",
+    html: (r === 0.125 ? "1/8" : r === 0.25 ? "1/4" : r === 0.5 ? "1/2" : r) + " mi", iconSize: [44, 16], iconAnchor: [22, 8]})}).addTo(map);
+});
+const fit = () => map.fitBounds(site.toBounds(2 * ringR[ringR.length - 1] * 1609.344), {padding: [12, 12]});
+fit();
+window.addEventListener("load", () => { map.invalidateSize(); fit(); });
+
+const legend = L.control({position: "bottomleft"});
+legend.onAdd = () => { const d = L.DomUtil.create("div", "legend");
+  d.innerHTML = D.dbs.filter(x => x.count).map(x => `<div><span class="dot" style="background:${x.color}"></span> ${esc(x.label)}</div>`).join("")
+    + '<div><span class="dot" style="background:#fff;border:2px solid #000"></span> violation / leak / Superfund</div>';
+  return d; };
+legend.addTo(map);
+
+R.forEach((r, i) => {
+  r.i = i;
+  r.m = L.circleMarker([r.lat, r.lon], {radius: r.inAstm ? 7 : 5, color: r.flag ? "#000" : "#fff",
+    weight: r.flag ? 2.5 : 1, fillColor: DB[r.db].color, fillOpacity: r.inAstm ? 0.95 : 0.55});
+  r.m.bindPopup(() => `<b>${esc(r.name)}</b><br>${esc(DB[r.db].label)}<br>${esc(r.addr)}<br>` +
+    `${r.dist.toFixed(2)} mi ${r.dir} &middot; elevation vs site: ${fmtRel(r.relElev)} ft<br>` +
+    `${r.inAstm ? '<span class="badge">inside ASTM distance</span>' : '<span class="badge ok">outside ASTM distance</span>'}<br>` +
+    `${esc(r.status)}` + (r.link ? `<br><a href="${esc(r.link)}" target="_blank" rel="noopener">Agency record</a>` : ""));
+});
+
+// ---- filters
+const state = {dbs: new Set(D.dbs.filter(d => d.astm !== null).map(d => d.key)), sort: "dist", asc: true};
+const dbl = document.getElementById("dblist");
+dbl.innerHTML = D.dbs.map(d => `<label><input type="checkbox" value="${d.key}"><span class="dot" style="background:${d.color}"></span>
+  ${esc(d.label)} (${d.count})<span class="astm">${d.astm === null ? "supplemental" : "ASTM " + d.astm + " mi" + (d.adj ? "*" : "")}</span></label>`).join("");
+const boxes = [...dbl.querySelectorAll("input")];
+const syncBoxes = () => boxes.forEach(b => b.checked = state.dbs.has(b.value));
+boxes.forEach(b => b.onchange = () => { b.checked ? state.dbs.add(b.value) : state.dbs.delete(b.value); draw(); });
+document.getElementById("bAstm").onclick = () => { state.dbs = new Set(D.dbs.filter(d => d.astm !== null).map(d => d.key)); syncBoxes(); draw(); };
+document.getElementById("bAll").onclick = () => { state.dbs = new Set(D.dbs.map(d => d.key)); syncBoxes(); draw(); };
+document.getElementById("bNone").onclick = () => { state.dbs = new Set(); syncBoxes(); draw(); };
+["fDist", "fAstm", "fUp", "fFlag"].forEach(id => document.getElementById(id).onchange = draw);
+document.getElementById("fText").oninput = draw;
+document.querySelectorAll("th[data-k]").forEach(th => th.onclick = () => {
+  const k = th.dataset.k; state.asc = state.sort === k ? !state.asc : true; state.sort = k; draw(); });
+
+function visible() {
+  const maxD = +document.getElementById("fDist").value, astm = document.getElementById("fAstm").checked,
+        up = document.getElementById("fUp").checked, flag = document.getElementById("fFlag").checked,
+        q = document.getElementById("fText").value.trim().toLowerCase();
+  return R.filter(r => state.dbs.has(r.db) && r.dist <= maxD && (!astm || r.inAstm) &&
+    (!up || (r.relElev != null && r.relElev > D.tol)) &&
+    (!flag || r.flag || ["NPL", "SEMS", "STATE_SF", "LPST"].includes(r.db)) &&
+    (!q || (r.name + " " + r.addr + " " + r.status + " " + DB[r.db].label).toLowerCase().includes(q)));
+}
+function draw() {
+  const rows = visible(), k = state.sort, s = state.asc ? 1 : -1;
+  rows.sort((a, b) => { let x = k === "db" ? DB[a.db].label : a[k], y = k === "db" ? DB[b.db].label : b[k];
+    if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "string" ? x.localeCompare(y) : x - y) * s || a.dist - b.dist; });
+  const shown = new Set(rows.map(r => r.i));
+  R.forEach(r => shown.has(r.i) ? r.m.addTo(map) : r.m.remove());
+  document.getElementById("count").textContent = `(${rows.length} of ${R.length} shown)`;
+  document.getElementById("tbody").innerHTML = rows.map(r => `<tr data-i="${r.i}" class="${r.flag ? "flag" : ""}">
+    <td><span class="dot" style="background:${DB[r.db].color}"></span> ${esc(DB[r.db].label)}</td>
+    <td>${esc(r.name)}</td><td>${esc(r.addr)}</td><td class="num">${r.dist.toFixed(3)}</td><td>${r.dir}</td>
+    <td class="num ${r.relElev > D.tol ? "up" : r.relElev < -D.tol ? "down" : ""}">${fmtRel(r.relElev)}</td>
+    <td>${r.astm === null ? '<span class="small">supplemental</span>' : r.inAstm ? '<span class="badge">inside ' + r.astm + ' mi</span>' : '<span class="badge ok">outside</span>'}</td>
+    <td>${esc(r.status)}</td><td>${r.link ? `<a href="${esc(r.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">record</a>` : ""}</td></tr>`).join("")
+    || '<tr><td colspan="9" class="small" style="padding:14px">No records match these filters.</td></tr>';
+}
+document.getElementById("tbody").onclick = e => { const tr = e.target.closest("tr[data-i]"); if (!tr) return;
+  const r = R[+tr.dataset.i]; map.setView([r.lat, r.lon], Math.max(map.getZoom(), 17)); r.m.openPopup();
+  document.getElementById("map").scrollIntoView({behavior: "smooth", block: "center"}); };
+
+// ---- exports
+document.getElementById("bCsv").onclick = () => {
+  const cols = [["Database", r => DB[r.db].label], ["Name", r => r.name], ["Address", r => r.addr],
+    ["Distance (mi)", r => r.dist.toFixed(3)], ["Direction", r => r.dir], ["Elevation vs site (ft)", r => r.relElev ?? ""],
+    ["ASTM search distance (mi)", r => r.astm ?? "supplemental"], ["Inside ASTM distance", r => r.inAstm ? "Yes" : "No"],
+    ["Status", r => r.status], ["Latitude", r => r.lat], ["Longitude", r => r.lon], ["Agency record", r => r.link]];
+  const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+  const csv = [cols.map(c => q(c[0])).join(",")].concat(visible().sort((a, b) => a.dist - b.dist)
+    .map(r => cols.map(c => q(c[1](r))).join(","))).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + csv], {type: "text/csv"}));
+  a.download = "radius_records_" + D.date + ".csv"; a.click(); };
+document.getElementById("bCopy").onclick = () => {
+  const txt = "Environmental screening, " + D.address + " (" + D.date + ")\n" +
+    [...document.querySelectorAll("#findings li")].map(li => "- " + li.innerText).join("\n");
+  navigator.clipboard.writeText(txt).then(() => { const b = document.getElementById("bCopy");
+    b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy findings", 1500); }); };
+
+syncBoxes(); draw();
+</script></body></html>
